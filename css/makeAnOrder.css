@@ -95,11 +95,13 @@ nav a:hover::before {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	z-index: 10;
 }
 
 .service-card_flex {
 	display: flex;
 	gap: 10px;
+	z-index: 999; /* выше карты */
 	flex-direction: column;
 	max-width: 600px;
 	max-height: calc(100vh - 200px);
@@ -110,6 +112,8 @@ nav a:hover::before {
 	/* скрываем скролл */
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none; /* IE и Edge */
+	position: relative;
+	pointer-events: auto;
 }
 
 .service-card_flex::-webkit-scrollbar {
@@ -408,7 +412,7 @@ nav a:hover::before {
 	content: '•';
 	position: absolute;
 	left: 8px;
-	top: 50%;
+	top: 52%;
 	transform: translateY(-50%);
 	font-size: 50px;
 }
@@ -683,6 +687,7 @@ input[type='time'] {
 
 .map-container-flex {
 	position: relative;
+	width: 100%;
 }
 
 /* карта */
@@ -692,8 +697,7 @@ input[type='time'] {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	z-index: -1;
-	background: #ddd;
+	z-index: 1; /* ниже карточек */
 }
 /*ПОДВАЛ 1*/
 .footer-top {

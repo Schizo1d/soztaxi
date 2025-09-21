@@ -17,7 +17,6 @@
                 <img src="img/mainPage_logo.png" alt="Логотип" class="logo-img">
               </div>
 
-              
               <div class="header-left__divider"></div>
 
               <div class="header-left__city-block">
@@ -56,7 +55,7 @@
               Мы перевозим маломобильных граждан и сдаём в аренду коляски, ходунки и другие средства передвижения.<br><br>
               Для пожилых, людей после операций и тех, кому трудно передвигаться самостоятельно.
             </p>
-            <a href="#" class="help-block__btn">Подробнее о нас</a>
+            <a href="#" class="help-block__btn">Подробнее о нас<img src="img/search.svg" alt=""></a>
             <img src="img/help-block__imageLeft.png" alt="Иллюстрация" class="help-block__image">
           </div>
 
@@ -66,22 +65,36 @@
 
             <form class="help-form">
               <div class="form-group">
-                <label for="from">Откуда*</label>
-                <input type="text" id="from" placeholder="Адрес или место">
-                <span class="error-text">Ошибка при вводе данных</span>
+                <div class="address-form input-with-dot dot-red">
+                  <input type="text" placeholder="Откуда*">
+                </div>
               </div>
 
               <div class="form-group">
-                <label for="to">Куда*</label>
-                <input type="text" id="to" placeholder="Адрес или место">
+                <div class="address-form input-with-dot dot-purple">
+                    <input type="text" placeholder="Куда*">
+                </div>
               </div>
 
               <div class="form-row">
-                <input type="time" id="time">
-                <input type="date" id="date">
+                <div class="input-with-icon">
+                  <img src="img/time.png" alt="">
+                  <input type="text" placeholder="Время*" onfocus="this.type='time'" onblur="if(!this.value) this.type='text'">
+                </div>
+
+                <div class="input-with-icon">
+                  <img src="img/date.png" alt="">
+                  <input type="text" placeholder="Дата*" onfocus="this.type='date'" onblur="if(!this.value) this.type='text'">
+                </div>
               </div>
 
-              <button type="submit" class="calc-btn">Рассчитать</button>
+              <div class="help-block__action">
+                <p class="help-block__policy">
+                  *Нажимая кнопку «Рассчитать», я соглашаюсь с Пользовательским соглашением 
+                  и даю согласие на обработку персональных данных на условиях, определенных «Политикой конфиденциальности.
+                </p>
+                <button type="submit" class="calc-btn">Рассчитать →</button>
+              </div>
             </form>
           </div>
         </div>
