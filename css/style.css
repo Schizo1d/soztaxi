@@ -1,0 +1,386 @@
+body {
+	margin: 0;
+	font-family: 'Montserrat-Medium';
+}
+
+header {
+	display: flex;
+	flex-direction: column; /* чтобы навигация была снизу */
+	padding: 15px 40px;
+	background: #fff;
+	border-bottom: 1px solid #ddd;
+	font-family: 'Montserrat-Medium';
+}
+
+.header-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.container {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.header-left {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.header-left__city {
+	font-size: 14px;
+	color: #555;
+}
+.header-left__city span {
+	font-weight: bold;
+	color: #000;
+	margin-left: 5px;
+}
+
+.header-left__divider {
+	width: 1px;
+	height: 50px;
+	background-color: #ccc; /* серый разделитель */
+}
+
+.header-left__city-block {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	line-height: 1.2;
+}
+
+.header-left__city-label {
+	font-size: 12px;
+	color: #777;
+	margin-bottom: 2px;
+}
+
+.header-left__city-name {
+	font-size: 18px;
+	color: #000;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+nav {
+	margin-top: 25px;
+	display: flex;
+	justify-content: flex-start; /* по левому краю */
+	gap: 30px;
+}
+
+nav a {
+	position: relative;
+	text-decoration: none;
+	color: #535353;
+	margin: 0 15px;
+	font-size: 16px;
+	font-weight: normal;
+	transition: color 0.3s, text-decoration 0.3s;
+}
+
+nav a::before {
+	content: '';
+	position: absolute;
+	left: -15px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	background: #000;
+	transition: all 0.3s ease;
+}
+
+/* Активная ссылка */
+nav a.active {
+	color: #000;
+	text-decoration: underline;
+}
+
+nav a.active::before {
+	width: 8px;
+	height: 8px;
+	background: red;
+}
+
+/* Наведение */
+nav a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+nav a:hover::before {
+	width: 8px;
+	height: 8px;
+	background: red;
+}
+
+.header-right {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.header-right__install-btn {
+	position: relative;
+	overflow: hidden; /* чтобы блеск не вылезал за границы */
+	background: #ffd700;
+	padding: 12px 25px;
+	border-radius: 10px;
+	font-size: 16px;
+	text-decoration: none;
+	color: #000;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+}
+
+.header-right__install-btn::after {
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: 120%;
+	width: 80%;
+	height: 200%;
+	background: linear-gradient(
+		-160deg,
+		rgba(255, 255, 255, 0) 0%,
+		rgba(255, 255, 255, 0.6) 50%,
+		rgba(255, 255, 255, 0) 100%
+	);
+	transform: rotate(-160deg);
+}
+
+/* Запускаем анимацию при наведении */
+.header-right__install-btn:hover::after {
+	animation: shine 1s ease;
+}
+
+@keyframes shine {
+	0% {
+		left: 120%;
+	}
+	100% {
+		left: -120%;
+	}
+}
+
+.header-right__install-btn:hover {
+	background: #e6c200;
+}
+
+.header-right__install-btn img {
+	width: 20px;
+	height: 20px;
+}
+
+.header-right__phone-block {
+	display: flex;
+	flex-direction: column;
+	text-align: right;
+}
+.header-right__phone-block .header-right__small-text {
+	font-size: 12px;
+	color: #666;
+}
+.header-right__phone-block .header-right__phone {
+	font-size: 18px;
+}
+
+/*БЛОК ПОМОЩИ*/
+.help-block {
+	margin-top: 40px;
+	height: 650px;
+}
+
+.help-block__content {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	border-radius: 32px;
+	overflow: hidden;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.help-block__left {
+	position: relative;
+	flex: 1;
+	background: linear-gradient(rgba(66, 61, 138, 0.8), rgba(66, 61, 138, 0.8)),
+		url('../img/help-block__BakcGround.png') center/cover no-repeat;
+	color: #fff;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.help-block__image {
+	position: absolute;
+	right: -10px;
+	top: 50%;
+	transform: translateY(-49%);
+	max-height: 100%;
+}
+
+.help-block__left h2 {
+	font-family: 'Montserrat-ExtraBold';
+	font-size: 64px;
+	margin: 0 0 15px;
+	line-height: 1.2;
+}
+
+.help-block__subtitle {
+	font-family: 'Montserrat-Italic';
+	font-size: 24px;
+	margin-bottom: 25px;
+	margin-top: 0;
+	position: relative; /* нужно для ::after */
+	display: inline-block; /* чтобы линия подстраивалась под ширину текста */
+}
+
+.help-block__subtitle::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -5px; /* расстояние до текста */
+	width: 100%;
+	height: 3px; /* толщина линии */
+	background: #ffd700; /* жёлтая линия */
+	border-radius: 2px;
+}
+
+.help-block__text {
+	font-size: 20px;
+	line-height: 1.2;
+	margin-bottom: 30px;
+	max-width: 370px;
+}
+
+.help-block__btn {
+	background: #ffd700;
+	color: #000;
+	padding: 14px 25px;
+	border-radius: 10px;
+	text-decoration: none;
+	font-size: 16px;
+	display: inline-block;
+	transition: 0.3s;
+	max-width: 260px;
+}
+
+.help-block__btn:hover {
+	background: #e6c200;
+}
+
+.help-block__right {
+	flex: 1;
+	padding: 40px;
+	background: #f5f6ff;
+}
+
+.help-block__right h3 {
+	font-size: 20px;
+	margin-bottom: 25px;
+	color: #333;
+}
+
+.help-form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group label {
+	font-size: 14px;
+	margin-bottom: 5px;
+	color: #444;
+}
+
+.form-group input {
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	font-size: 16px;
+}
+
+.error-text {
+	font-size: 12px;
+	color: red;
+	margin-top: 4px;
+	display: none; /* показать если ошибка */
+}
+
+.form-row {
+	display: flex;
+	gap: 15px;
+}
+
+.form-row input {
+	flex: 1;
+}
+
+.calc-btn {
+	align-self: flex-start;
+	background: #ffd700;
+	color: #000;
+	padding: 14px 25px;
+	border-radius: 10px;
+	border: none;
+	font-size: 16px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.calc-btn:hover {
+	background: #e6c200;
+}
+
+@font-face {
+	font-family: 'Montserrat-Medium';
+	src: url('../fonts/Montserrat-Medium.ttf') format('truetype');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat-SemiBold';
+	src: url('../fonts/Montserrat-SemiBold.ttf') format('truetype');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat-Regular';
+	src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat-ExtraBold';
+	src: url('../fonts/Montserrat-ExtraBold.ttf') format('truetype');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat-Italic';
+	src: url('../fonts/Montserrat-Italic.ttf') format('truetype');
+	font-style: normal;
+	font-weight: normal;
+}
