@@ -17,6 +17,7 @@
                 <img src="img/mainPage_logo.png" alt="Логотип" class="logo-img">
               </div>
 
+              
               <div class="header-left__divider"></div>
 
               <div class="header-left__city-block">
