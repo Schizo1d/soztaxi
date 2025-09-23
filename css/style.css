@@ -131,7 +131,7 @@ nav a:hover::before {
 
 .header-right__install-btn {
 	position: relative;
-	overflow: hidden; /* чтобы блеск не вылезал за границы */
+	overflow: hidden;
 	background: #ffd700;
 	padding: 12px 25px;
 	border-radius: 10px;
@@ -269,6 +269,8 @@ nav a:hover::before {
 }
 
 .help-block__btn {
+	position: relative;
+	overflow: hidden;
 	background: #ffd700;
 	color: #000;
 	padding: 16px 25px;
@@ -285,18 +287,46 @@ nav a:hover::before {
 	gap: 16px;
 	cursor: pointer;
 	justify-content: center;
+	z-index: 1;
+}
+
+.help-block__btn::after {
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: 120%;
+	width: 80%;
+	height: 200%;
+	background: linear-gradient(
+		-160deg,
+		rgba(255, 255, 255, 0) 0%,
+		rgba(255, 255, 255, 0.6) 50%,
+		rgba(255, 255, 255, 0) 100%
+	);
+	transform: rotate(-160deg);
+}
+
+/* Запускаем анимацию при наведении */
+.help-block__btn:hover::after {
+	animation: shine 1s ease;
 }
 
 .help-block__btn:hover {
 	background: #e6c200;
 }
 
+.help-block__btn img {
+	width: 20px;
+	height: 20px;
+}
+
 .help-block__right {
 	flex: 1;
 	padding: 40px;
-	background: url('../img/help-block__bg.png') center/cover no-repeat;
+	background: url('../img/background_city.png') center/cover no-repeat;
 	display: flex;
 	flex-direction: column;
+	background-color: #ededfe;
 }
 
 .help-block__right h3 {
@@ -341,18 +371,23 @@ nav a:hover::before {
 	margin: 0;
 	text-align: right;
 	max-width: 430px;
+	font-family: 'Montserrat-Light';
 }
 
 .calc-btn {
+	display: inline-flex; /* чтобы работало выравнивание текста по центру */
+	align-items: center;
+	justify-content: center;
 	background: #ffd700;
 	color: #000;
 	padding: 14px 30px;
 	border-radius: 10px;
-	border: none;
 	font-size: 16px;
 	cursor: pointer;
+	text-decoration: none; /* убрать подчеркивание ссылки */
 	transition: 0.3s;
 	white-space: nowrap;
+	gap: 16px;
 }
 
 .calc-btn:hover {
@@ -436,6 +471,303 @@ nav a:hover::before {
 	color: #413d89; /* для "Куда" */
 }
 
+/*СЕКЦИЯ FEATURES*/
+.features {
+	margin: 60px 0;
+}
+
+.features__content {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+.feature-card {
+	flex: 1;
+	min-width: 280px;
+	background: #ededfe;
+	border-radius: 20px;
+	padding: 24px;
+	display: flex; /* текст слева, иконка справа */
+	align-items: stretch; /* растягиваем по высоте */
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s;
+}
+
+.feature-card__spacer {
+	flex-grow: 1; /* растягивает, уводит .desc вниз */
+}
+
+.feature-card__icon {
+	position: relative;
+	justify-content: center;
+	margin-left: auto;
+}
+
+/* .feature-card__icon {
+	position: relative;
+	display: flex;
+	justify-content: center; 
+	align-items: flex-end;
+} */
+
+.feature-card__icon::after {
+	content: '';
+	position: absolute;
+	bottom: -10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 85%;
+	height: 30px;
+	background: rgba(0, 0, 0, 0.25);
+	border-radius: 50%;
+	filter: blur(8px);
+}
+
+.feature-card:hover {
+	transform: translateY(-5px);
+}
+
+.feature-card__icon img {
+	max-height: 200px; /* подберите нужный размер */
+	width: auto;
+}
+
+.feature-card__text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center; /* центрируем по вертикали */
+	width: 300px;
+}
+
+.feature-card__text h3 {
+	font-size: 41px;
+	margin: 0;
+	color: #222;
+	font-family: 'Montserrat-Bold';
+}
+
+.feature-card__text h3 span {
+	font-size: 135px; /* число больше */
+	font-weight: 800;
+	color: #000;
+	display: block;
+	line-height: 1;
+	margin-bottom: 5px;
+}
+
+.feature-card__desc {
+	font-size: 24px;
+	color: #555;
+	margin: 0;
+	font-family: 'Montserrat-SemiBold';
+	max-width: 230px;
+	margin-top: auto;
+	height: 80px;
+}
+
+/* СЕКЦИЯ ASSISTIVE */
+.assistive {
+}
+
+.assistive__title {
+	font-size: 64px;
+	font-family: 'Montserrat-ExtraBold';
+	text-align: center;
+	margin-bottom: 20px;
+	color: #000;
+	line-height: 1;
+}
+
+.assistive__title span {
+	color: #413d89;
+}
+
+.assistive__subtitle {
+	max-width: 935px;
+	margin: 0 auto 40px;
+	text-align: center;
+	font-size: 20px;
+	color: #444;
+}
+
+.assistive__grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr; /* две колонки */
+	column-gap: 30px; /* расстояние между колонками */
+	row-gap: 120px; /* расстояние между строками */
+	margin: 0 auto;
+	margin-top: 110px;
+}
+
+.assistive__grid .assistive-card:last-child {
+	grid-column: 1 / -1; /* растянуть на всю ширину */
+	margin: 0 auto; /* выровнять по центру */
+	max-width: 805px;
+}
+
+.assistive-card {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #ededfe;
+	border-radius: 20px;
+	padding: 20px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s;
+	transition: background 0.5s ease; /* плавный переход цвета */
+	max-height: 190px;
+}
+
+.assistive-card:hover {
+	background: #ffd700; /* желтый фон */
+}
+
+.assistive-card__text {
+	flex: 1;
+	padding-right: 15px;
+	max-width: 440px;
+}
+
+.assistive-card__text h3 {
+	font-family: 'Montserrat-SemiBold';
+	font-size: 36px;
+	margin: 0;
+	width: 380px;
+}
+
+.assistive-card__image {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: visible; /* чтобы картинка могла выходить за пределы */
+	width: 300px; /* фиксированный контейнер */
+	height: 150px;
+	flex-shrink: 0; /* не сжимается */
+}
+
+.assistive-card__image::after {
+	content: '';
+	position: absolute;
+	bottom: -10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80%;
+	height: 50px;
+	background: rgba(0, 0, 0, 0.25);
+	border-radius: 50%;
+	filter: blur(8px);
+	pointer-events: none;
+	transition: width 0.8s ease; /* плавное изменение ширины */
+}
+
+.assistive-card:hover .assistive-card__image::after {
+	width: 60%; /* тень становится уже */
+}
+
+.assistive-card__image img {
+	position: absolute;
+	top: -100px; /* картинка вылезает вверх */
+	left: 50%;
+	transform: translateX(-50%) translateY(0) scale(1); /* начальная позиция и масштаб */
+	max-height: 280px;
+	max-width: 315px;
+	transition: transform 0.8s ease; /* плавный переход */
+}
+
+/* При наведении на родителя */
+.assistive-card:hover .assistive-card__image img {
+	transform: translateX(-50%) translateY(-10px) scale(1.05); /* поднимаем и увеличиваем */
+}
+
+img[alt='Прочие средства'] {
+	top: -60px;
+	max-width: 333px;
+}
+
+.assistive-card p {
+	font-size: 20px;
+	color: #555;
+}
+
+/*СЕКЦИЯ STEPS*/
+.care-steps {
+	padding: 60px 0;
+}
+
+.care-steps h2 {
+	text-align: left;
+	font-size: 64px;
+	margin-bottom: 30px;
+	font-family: 'Montserrat-ExtraBold';
+}
+
+.care-steps h2 span {
+	color: #3b2da8;
+}
+
+.care-steps__block {
+	display: flex;
+	align-items: stretch;
+	gap: 0;
+}
+
+.care-steps__image img {
+	max-width: 100%;
+	height: 100%;
+	border-radius: 16px 0 0 16px;
+}
+
+.care-steps__steps {
+	display: flex;
+	flex: 1;
+	border-radius: 0 16px 16px 0;
+	overflow: hidden;
+}
+
+.care-step {
+	flex: 1;
+	background: linear-gradient(135deg, #2e2a86, #3c2f8d);
+	color: #fff;
+	padding: 30px 20px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	border-radius: 0px 20px 20px 0px;
+}
+
+.care-step:not(:last-child) {
+	border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.care-step__number {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	font-size: 120px;
+	font-weight: 700;
+	color: rgba(255, 255, 255, 0.15);
+	line-height: 1;
+	pointer-events: none;
+}
+
+.care-step h3 {
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.care-step p {
+	font-size: 16px;
+	line-height: 1.4;
+}
+
+.care-step b {
+	color: #ffd92e;
+}
+
 @font-face {
 	font-family: 'Montserrat-Medium';
 	src: url('../fonts/Montserrat-Medium.ttf') format('truetype');
@@ -474,6 +806,13 @@ nav a:hover::before {
 @font-face {
 	font-family: 'Montserrat-Light';
 	src: url('../fonts/Montserrat-Light.ttf') format('truetype');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat-Bold';
+	src: url('../fonts/Montserrat-Bold.ttf') format('truetype');
 	font-style: normal;
 	font-weight: normal;
 }
