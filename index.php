@@ -204,36 +204,56 @@
   <div class="container">
     <h2><span>3 шага</span> заботливой перевозки</h2>
     <div class="care-steps__block">
-      
       <!-- Левая часть -->
       <div class="care-steps__image">
         <img src="img/care-steps__car-img.png" alt="Машина перевозки">
       </div>
-
       <!-- Правая часть -->
       <div class="care-steps__steps">
-        
         <div class="care-step">
           <span class="care-step__number">1</span>
-          <h3>Заказать</h3>
-          <p>Оформите <b>он-лайн</b> заказ через наш сервис.</p>
+          <div class="care-step__flex-text">
+            <h3>Заказать</h3>
+            <p>Оформите <b>он-лайн</b> заказ через наш сервис.</p>
+          </div>
         </div>
-
         <div class="care-step">
           <span class="care-step__number">2</span>
-          <h3>Подтвердить</h3>
-          <p>Подтвердим бронь и напомним за <b>60 минут</b> до вашей поездки.</p>
+          <div class="care-step__flex-text">
+            <h3>Подтвердить</h3>
+            <p>Подтвердим бронь и напомним за <b>60 минут</b> до вашей поездки.</p>
+          </div>
         </div>
-
         <div class="care-step">
           <span class="care-step__number">3</span>
-          <h3>И всё!</h3>
-          <p>Возьмите необходимые вещи и <b>сообщите родным</b> о поездке.</p>
+          <div class="care-step__flex-text">
+            <h3>И всё!</h3>
+            <p>Возьмите необходимые вещи и <b>сообщите родным</b> о поездке.</p>
+          </div>
         </div>
-
       </div>
     </div>
-  </div>
+    <div class="care-steps__emergency-wrapper">
+      <div class="care-steps__emergency">
+        <div class="emergency__icon">
+          <img src="img/emergency__rupor.png" alt="Иконка">
+        </div>
+        <div class="emergency__text">
+          <h3>Экстренный вызов</h3>
+          <span class="emergency__divider"></span>
+          <p>Приедем в течение 30 минут, при наличии свободной машины.</p>
+        </div>
+        <div class="emergency__btn-wrapper">
+          <div class="emergency__lights-red"></div>
+          <div class="emergency__lights-blue"></div>
+          <a href="#" class="emergency__btn">Заказать<img src="img/emergency__rocket.svg" alt=""></a>
+        </div>
+      </div>
+      <p class="emergency__policy">
+        *Нажимая кнопку «Заказать», я соглашаюсь с Пользовательским соглашением 
+        и даю согласие на обработку персональных данных на условиях, определённых «Политикой конфиденциальности».
+      </p>
+    </div>
 </section>
 </body>
 </html>
